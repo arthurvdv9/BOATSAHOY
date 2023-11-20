@@ -8,4 +8,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  resources :boats, except: [:destroy, :edit] do
+    resources :bookings, except: [:destroy]
+  end
 end
