@@ -14,16 +14,20 @@ class BoatsController < ApplicationController
 
   def create
     @boat = Boat.new(boat_params)
+    @boat.user = current_user
+
+
     if @boat.save
       redirect_to root_path
     else
-      render :index, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
+      raise
     end
   end
 
   private
 
-  def set_Boat
+  def set_boat
     @boat = Boat.find(params[:id])
   end
 

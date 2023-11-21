@@ -1,0 +1,14 @@
+<div class="cards m-4">
+    <% @user.boat.each do |boat| %>
+      <% booking = Booking.find_by(user: @user, boat: boat) %>
+
+      <div class="card-category">
+        <%= link_to boat.name, boat_path(boat)%>
+        <%= booking.start_date%>
+        <%= boat.end_date%>
+        <%= link_to "Accept", accept_path(booking), data: {turbo_method: :patch} %>
+        <%= link_to "Reject", reject_path(booking), data: {turbo_method: :patch} %>
+
+      </div>
+    <% end %>
+</div>
