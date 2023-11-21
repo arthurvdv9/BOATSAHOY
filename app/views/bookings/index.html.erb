@@ -6,6 +6,9 @@
         <%= link_to boat.name, boat_path(boat)%>
         <%= booking.start_date%>
         <%= boat.end_date%>
+        <%= link_to "Accept", accept_path(booking), data: {turbo_method: :patch} %>
+        <%= link_to "Reject", reject_path(booking), data: {turbo_method: :patch} %>
+
       </div>
     <% end %>
 </div>
