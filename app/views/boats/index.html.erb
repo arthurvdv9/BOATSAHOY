@@ -1,0 +1,25 @@
+  <div class="container text-center">
+    <h1>All about boats!</h1>
+    <p>See the amazing boats you can rent!</p>
+    <%# <a class="btn btn-flat" href="#">Apply now</a> %>
+  </div>
+
+  <div class="container m-5">
+    <%= link_to "+ Add a boat",  new_boat_path, class: "btn btn-flat" %>
+  </div>
+
+
+<div class="cards m-4">
+    <% @boats.each do |boat| %>
+
+  <div class="card-category">
+    <%= link_to boat.name, boat_path(boat)%>
+    <%= boat.location%>
+    <%= boat.price%>
+
+
+  </div>
+
+    <% end %>
+
+</div>
