@@ -8,11 +8,14 @@ class BookingsController < ApplicationController
   def show; end
 
   def new
+    @boat = Boat.find(params[:boat_id])
     @booking = Booking.new
   end
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.boat = Boat.find(params[:boat_id])
+    @booking.user = current_user
     if @booking.save
       redirect_to boats_path notice:"Booking was successfully created."
     else
