@@ -1,0 +1,26 @@
+
+
+<div class="map" style="background-image: url('<%=  %>')"></div>
+
+<div class="container margin-top-negative">
+  <div class="row">
+    <div class="col-8">
+      <div class="boat-show-card">
+        <h1><%= @boat.name %></h1>
+        <p class="boat-show-location"><%= @boat.location %></p>
+      </div>
+      <div class="boat-show-card">
+        <h3>Boat info</h3>
+        <p><%= @boat.capacity %></p>
+      </div>
+    </div>
+
+<div class="col-4">
+  <div class="book-show-card">
+  <h5><%= link_to "Book this Boat!", new_boat_booking_path(@boat) %></h5>
+
+<div class="col-4">
+  <div class="allBookings-show-card">
+  <h5><%= link_to "Booking Details", boat_bookings_path(@boat) %></h5>
+
+<form action="">
