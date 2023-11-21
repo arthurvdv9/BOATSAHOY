@@ -4,6 +4,11 @@
     <%# <a class="btn btn-flat" href="#">Apply now</a> %>
   </div>
 
+  <div class="container m-5">
+    <%= link_to "+ Add a boat",  new_boat_path, class: "btn btn-flat" %>
+  </div>
+
+
 <div class="cards m-4">
     <% @boats.each do |boat| %>
 
