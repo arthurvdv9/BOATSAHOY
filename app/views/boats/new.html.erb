@@ -1,0 +1,12 @@
+<%= form_with model: @boat do |f| %>
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :capacity %>
+  <%= f.text_field :capacity %>
+  <%= f.label :price %>
+  <%= f.text_field :price %>
+  <%= f.submit "Add a boat!" %>
+<% end %>
+<p><%= link_to "Back to all boats", boats_path%></p>
