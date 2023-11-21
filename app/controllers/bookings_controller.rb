@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = Booking.all
+    @boats = Boat.where(user: current_user)
   end
 
   def show; end

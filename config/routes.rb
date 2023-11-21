@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :boats, except: [:destroy, :edit] do
-    resources :bookings, except: [:destroy]
+    resources :bookings, except: [:destroy, :index]
     patch "/bookings/:id/accept", to: "bookings#accept", as: "accept"
     patch "/bookings/:id/reject", to: "bookings#reject", as: "reject"
   end
+  resources :bookings, only: [:index, :destroy]
 end
