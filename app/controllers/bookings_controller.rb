@@ -30,4 +30,20 @@ private
     params.require(:booking).permit(:start_date, :end_date, :total_price, :user_id, :boat_id)
   end
 
+
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.status = "accepted"
+    @booking.save
+    redirect_to bookings_path
+  end
+
+  def reject
+    @booking = Booking.find(params[:id])
+    @booking.status = "rejected"
+    @booking.save
+    redirect_to bookings_path
+  end
+
+
 end
