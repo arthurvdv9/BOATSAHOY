@@ -7,5 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-
-Boat.create(location:"Atlantis", name: "Ariel", capacity: 5, price: 300, user_id: 1)
+Boat.destroy_all
+User.destroy_all
+user = User.create!(email:"fsfa@gmail.com",  password: "123456")
+Boat.create!(location:"Atlantis", name: "Ariel", capacity: 5, price: 300, user_id: user.id)
