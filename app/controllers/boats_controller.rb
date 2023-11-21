@@ -20,10 +20,9 @@ class BoatsController < ApplicationController
 
 
     if @boat.save
-      redirect_to root_path
+      redirect_to boats_path
     else
       render :new, status: :unprocessable_entity
-      raise
     end
   end
 
