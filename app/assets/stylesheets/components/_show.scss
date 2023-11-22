@@ -1,55 +1,106 @@
+.banner {
+  background-size:cover;
+  background-position: center;
+  padding: 150px 0;
+}
 
+.banner h1 {
+  font-family: 'Roboto Mono', monospace;
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
 
 .boat-card {
-  width: 100%;
-  position: relative;
-  margin: .5rem 0 1rem 0;
-  background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+  overflow: hidden;
+  height: 222px;
+  background: #f7fbfe;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
 }
 
 .boat-card-image {
-  height: 180px;
-  background-position: center;
-  background-size: cover;
+  width:333px;
+  height:100%;
+  object-fit: cover;
 }
 
-.boat-card-content {
-  padding: 24px;
-  background-color: #F8F9FA;
-}
-
-.boat-card-actions {
-  position: relative;
-  background-color: inherit;
-  border-top: 1px solid rgba(160,160,160,0.2);
-  padding: 16px 24px;
-}
-
-.boat-show-card {
-  background: #F8F9FA;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-  border-radius: 3px;
-}
-
-.map {
-  height: 350px;
-  background-position: center;
-  background-size: cover;
+.boat-info h2 {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 24px;
+  font-weight: bold;
+  color:#060b3d;
+  margin: 0;
 }
 
 .margin-top-negative {
   margin-top: -75px;
 }
-.no-mb {
-  margin-bottom: 0;
-}
+
+
 
 .boat-show-location {
+  font-family: 'Poppins', sans-serif;
   font-weight: 300;
   font-size: 20px;
   color: #333;
+}
+
+.boat-card p {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color:#F12392
+}
+
+.boat-infos {
+  padding: 0 18px;
+}
+
+.buttons {
+margin-left: auto;
+}
+
+.btn-flat {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #f8d614;
+  transition: background 0.3s ease;
+}
+
+.btn-flat:hover {
+  background: #f7fbfe;
+  color: white;
+}
+
+.btn-ghost {
+  color: #F12392;
+  border: 1px solid #F12392;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ghost:hover {
+  opacity: 1;
+}
+
+.price-card {
+  font-size: 16px;
 }

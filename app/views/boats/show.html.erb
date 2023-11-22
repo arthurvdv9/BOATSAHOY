@@ -1,26 +1,26 @@
 
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.squarespace-cdn.com/content/v1/536bc856e4b06d13b2b98543/1444874692546-E68CBBDJD6Q77SQ214NA/Untitled+design-5.png?format=2500w);">
 
-<div class="map" style="background-image: url('<%=  %>')"></div>
+  <div class="container">
+    <h1> <strong>Ready</strong> to <strong>sail away?</strong></h1>
+    <p>From a city lake to the open sea, make your next boat ride plain sailing.</p>
+  </div>
+</div>
 
-<div class="container margin-top-negative">
-  <div class="row">
-    <div class="col-8">
-      <div class="boat-show-card">
-        <h1><%= @boat.name %></h1>
-        <p class="boat-show-location"><%= @boat.location %></p>
-      </div>
-      <div class="boat-show-card">
-        <h3>Boat info</h3>
-        <p><%= @boat.capacity %></p>
-      </div>
+<div class="boat-card">
+  <%= image_tag("https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg", class:"boat-card-image")%>
+  <div class="boat-infos">
+    <h2><%= @boat.name %></h2>
+        <p class="boat-show-location">Location: <%= @boat.location %></p>
+    <p>Boat capacity: <%= @boat.capacity %></p>
+  </div>
+  <div class="buttons">
+    <div class="allBookings-show-card">
+      <h5><%= link_to "Booking Details", boat_bookings_path(@boat), class: "btn btn-ghost" %></h5>
     </div>
-
-<div class="col-4">
-  <div class="book-show-card">
-  <h5><%= link_to "Book this Boat!", new_boat_booking_path(@boat) %></h5>
-
-<div class="col-4">
-  <div class="allBookings-show-card">
-  <h5><%= link_to "Booking Details", boat_bookings_path(@boat) %></h5>
-
-<form action="">
+    <div class="book-show-card">
+      <h5><%= link_to "Book this Boat!", new_boat_booking_path(@boat), class: "btn btn-flat" %></h5>
+    </div>
+    <h2 class="price-card"> From $ <strong><%= @boat.price %></strong> per day</h2>
+  </div>
+</div>
