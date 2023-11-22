@@ -3,7 +3,9 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = Booking.all
-    @boats = Boat.where(user: current_user)
+    boat = Boat.find(params[:boat_id])
+    @my_bookings = Booking.where(user: current_user)
+    @pending_requests = Booking.select{ |booking| booking.boat.user == current_user && booking.status == "pending"}
   end
 
   def show; end
