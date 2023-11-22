@@ -2,20 +2,26 @@
 <%# <% current_user.boats.each do |boat| %>
   <h1>Here are your list of bookings for the boats</h1>
   <div class="container d-flex align-items-center justify-content-center">
-      <% @boats.each do |boat| %>
+    <p>Bookings I made</p>
+    <% @my_bookings.each do |booking| %>
+      <p>From <%= booking.start_date %> to
+      <%= booking.end_date %></p>
+      <p>Status: <%= booking.status %></p>
+
         <div class="booking-card", style = "background-color: white;">
+
           <div class="booking-pic">
-            <%= cl_image_tag boat.photo.key, height: 300, width: 400, crop: :fill %>
+            <%= cl_image_tag booking.boat.photo.key, height: 300, width: 400, crop: :fill %>
           </div>
+
           <div class="booking-info">
-            <h2><%= boat.name %> in <%= boat.location %> 📍</h2>
-            <% boat.bookings.each do |booking| %>
-              <p>From <%= booking.start_date %> to
-              <%= booking.end_date %></p>
-              <p>Status: <%= booking.status %></p>
-            <% end %>
+            <h2><%= booking.boat.name %> in <%= booking.boat.location %> 📍</h2>
+
           </div>
         </div>
-      <% end %>
+
+    <% end %>
+
+
   </div>
 </div>
