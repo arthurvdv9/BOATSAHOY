@@ -1,14 +1,21 @@
-<div class="cards m-4">
+<div class="container">
 <%# <% current_user.boats.each do |boat| %>
-
-  <% @boats.each do |boat| %>
-    <%= boat.name %>
-      <% boat.bookings.each do |booking| %>
-        <%= booking.start_date %>
-        <%= booking.end_date %>
-        <%= booking.status %>
+  <h1>Here are your list of bookings for the boats</h1>
+  <div class="container d-flex align-items-center justify-content-center">
+      <% @boats.each do |boat| %>
+        <div class="booking-card", style = "background-color: white;">
+          <div class="booking-pic">
+            <%= cl_image_tag boat.photo.key, height: 300, width: 400, crop: :fill %>
+          </div>
+          <div class="booking-info">
+            <h2><%= boat.name %> in <%= boat.location %> 📍</h2>
+            <% boat.bookings.each do |booking| %>
+              <p>From <%= booking.start_date %> to
+              <%= booking.end_date %></p>
+              <p>Status: <%= booking.status %></p>
+            <% end %>
+          </div>
+        </div>
       <% end %>
-  <% end %>
-
-
+  </div>
 </div>
