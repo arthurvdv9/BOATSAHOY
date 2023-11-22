@@ -1,6 +1,11 @@
 <h1>Booking:</h1>
  <%= simple_form_for [@boat, @booking] do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
+  <%= f.input :start_date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+    <%= f.input :end_date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+
   <%= f.submit "Submit!" %>
 <% end %>
