@@ -6,13 +6,20 @@
   </div>
 </div>
 
-<div class="boat-card">
-  <div class="boat-infos">
-    <%= cl_image_tag @boat.photo.key, height: 300, width: 400, crop: :fill %>
-    <h2><%= @boat.name %></h2>
-        <p class="boat-show-location">Location: <%= @boat.location %></p>
-    <p>Boat capacity: <%= @boat.capacity %></p>
+<div class="boat-card mt-5">
+
+  <div class="boat-infos boat-card-image p-2 d-flex">
+    <div class="m-2">
+      <%= cl_image_tag @boat.photo.key, height: 300, width: 400, crop: :fill %>
+    </div>
+
+    <div class="m-2">
+      <h2><%= @boat.name %></h2>
+      <p class="boat-show-location">Location: <%= @boat.location %></p>
+      <p>Boat capacity: <%= @boat.capacity %></p>
+    </div>
   </div>
+
   <div class="buttons">
     <div class="allBookings-show-card">
       <h5><%= link_to "Booking Details", boat_bookings_path(@boat), class: "btn btn-ghost" %></h5>
