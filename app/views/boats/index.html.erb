@@ -4,6 +4,22 @@
     <p>From a city lake to the open sea, make your next boat ride plain sailing.</p>
   </div>
 
+  <div class="container m-5">
+    <%= link_to "+ Add a boat",  new_boat_path, class: "btn btn-flat" %>
+  </div>
+
+
+<div class="cards m-4">
+    <% @boats.each do |boat| %>
+
+  <div class="card-category">
+    <%= cl_image_tag boat.photo.key, height: 300, width: 400, crop: :fill %>
+    <%= link_to boat.name, boat_path(boat)%>
+    <%= boat.location%>
+    <%= boat.price%>
+
+
+  </div>
 
   <% @boats.each do |boat| %>
     <div class="boat-card">
