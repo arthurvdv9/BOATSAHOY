@@ -13,6 +13,7 @@
     <% @boats.each do |boat| %>
 
   <div class="card-category">
+    <%= cl_image_tag boat.photo.key, height: 300, width: 400, crop: :fill %>
     <%= link_to boat.name, boat_path(boat)%>
     <%= boat.location%>
     <%= boat.price%>

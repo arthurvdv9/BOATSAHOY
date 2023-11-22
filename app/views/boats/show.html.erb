@@ -8,8 +8,8 @@
 </div>
 
 <div class="boat-card">
-  <%= image_tag("https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg", class:"boat-card-image")%>
   <div class="boat-infos">
+    <%= cl_image_tag @boat.photo.key, height: 300, width: 400, crop: :fill %>
     <h2><%= @boat.name %></h2>
         <p class="boat-show-location">Location: <%= @boat.location %></p>
     <p>Boat capacity: <%= @boat.capacity %></p>
