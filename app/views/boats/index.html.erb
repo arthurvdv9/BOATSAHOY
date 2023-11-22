@@ -11,32 +11,6 @@
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-<div class="cards m-4">
-  <% @boats.each do |boat| %>
-    <div class="boat-card">
-    <% if boat.photo.attached? %>
-    <%= cl_image_tag boat.photo.key, height: 300, width: 400, crop: :fill %>
-    <% else %>
-    <p>no pic</p>
-    <% end %>
-
-  <div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
-      <div class="boat-infos">
-        <h2><%= boat.name %></h2>
-        <p>Location: <%= boat.location %></p>
-        <p>Boat capacity: <%= boat.capacity %></p>
-      </div>
-      <div class="buttons" style ="margin-right: 1rem;">
-        <div class="boat-detail-card">
-          <h5><%= link_to "See details!", boat_path(boat), class: "btn btn-flat" %></h5>
-        </div>
-      </div>
-    </div>
-
 
     <div class="cards">
 
@@ -63,4 +37,5 @@
 
     </div>
   </div>
+</div>
 </div>
