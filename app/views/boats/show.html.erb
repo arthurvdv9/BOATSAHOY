@@ -1,6 +1,5 @@
 
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.squarespace-cdn.com/content/v1/536bc856e4b06d13b2b98543/1444874692546-E68CBBDJD6Q77SQ214NA/Untitled+design-5.png?format=2500w);">
-
   <div class="container">
     <h1> <strong>Ready</strong> to <strong>sail away?</strong></h1>
     <p>From a city lake to the open sea, make your next boat ride plain sailing.</p>
@@ -8,8 +7,8 @@
 </div>
 
 <div class="boat-card">
-  <%= image_tag("https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg", class:"boat-card-image")%>
   <div class="boat-infos">
+    <%= cl_image_tag @boat.photo.key, height: 300, width: 400, crop: :fill %>
     <h2><%= @boat.name %></h2>
         <p class="boat-show-location">Location: <%= @boat.location %></p>
     <p>Boat capacity: <%= @boat.capacity %></p>
@@ -21,6 +20,6 @@
     <div class="book-show-card">
       <h5><%= link_to "Book this Boat!", new_boat_booking_path(@boat), class: "btn btn-flat" %></h5>
     </div>
-    <h2 class="price-card"> From $ <strong><%= @boat.price %></strong> per day</h2>
+      <h2 class="price-card"> From $ <strong><%= @boat.price %></strong> per day</h2>
   </div>
 </div>
