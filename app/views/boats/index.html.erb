@@ -1,28 +1,27 @@
+<div class="main m-4">
   <div class="container text-center">
-    <h1>All about boats!</h1>
-    <p>See the amazing boats you can rent!</p>
-    <%# <a class="btn btn-flat" href="#">Apply now</a> %>
-  </div>
-
-  <div class="container m-5">
-    <%= link_to "+ Add a boat",  new_boat_path, class: "btn btn-flat" %>
+    <h1> <strong>Ready</strong> to <strong>sail away?</strong></h1>
+    <p>From a city lake to the open sea, make your next boat ride plain sailing.</p>
   </div>
 
 
-<div class="cards m-4">
-    <% @boats.each do |boat| %>
-
-  <div class="card-category">
-    <%= link_to boat.name, boat_path(boat)%>
-    <%= boat.location%>
-    <%= boat.price%>
-
-
-  </div>
-
-    <% end %>
+  <% @boats.each do |boat| %>
+    <div class="boat-card">
+      <%= image_tag("https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg", class:"boat-card-image")%>
+      <div class="boat-infos">
+        <h2><%= boat.name %></h2>
+        <p>Location: <%= boat.location %></p>
+        <p>Boat capacity: <%= boat.capacity %></p>
+      </div>
+      <div class="buttons" style ="margin-right: 1rem;">
+        <div class="boat-detail-card">
+          <h5><%= link_to "See details!", boat_path(boat), class: "btn btn-flat" %></h5>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <a href="http://127.0.0.1:3000/bookings">
+    <button type="button" class="btn btn-ghost mt-3">See My bookings</button>
+  </a>
 
 </div>
-<a href="http://127.0.0.1:3000/bookings">
-  <button type="button" class="btn btn-primary">See My bookings</button>
-</a>
