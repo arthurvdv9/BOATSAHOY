@@ -4,6 +4,8 @@ class BoatsController < ApplicationController
 
   def index
     @boats = Boat.all
+    if params[:query].present?
+      @boats = @boats.where("location ILIKE ?", "%#{params[:query]}%")
     @markers = @boats.geocoded.map do |boat|
       {
         lat: boat.latitude,
@@ -11,7 +13,8 @@ class BoatsController < ApplicationController
       }
   end
 
-end
+    end
+      end
 
   def show
   end
