@@ -6,15 +6,16 @@ class BoatsController < ApplicationController
     @boats = Boat.all
     if params[:query].present?
       @boats = @boats.where("location ILIKE ?", "%#{params[:query]}%")
+    end
     @markers = @boats.geocoded.map do |boat|
       {
         lat: boat.latitude,
-        lng: boat.longitude
+        lng: boat.longitude,
+        #info_window_html:render_to_string(partial: "info_window", locals: {boat: boat}),
+        marker_html: render_to_string(partial: "marker")
       }
-  end
-
     end
-      end
+  end
 
   def show
   end
