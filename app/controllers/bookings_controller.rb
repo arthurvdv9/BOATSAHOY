@@ -1,14 +1,14 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, ]
+  #before_action :set_booking, only: [:show]
 
-  def index
-    @bookings = Booking.all
-    boat = Boat.find(params[:boat_id])
-    @my_bookings = Booking.where(user: current_user)
-    @pending_requests = Booking.select{ |booking| booking.boat.user == current_user && booking.status == "pending"}
-  end
+  # NOT IN USE ANYMORE SINCE TWO DIFFERENT PAGES FOR REQUESTS AND DEMANDS
+  # def index
+  #   @bookings = Booking.all
+  #   boat = Boat.find(params[:boat_id])
+  #   @my_bookings = Booking.where(user: current_user)
+  #   @pending_requests = Booking.select{ |booking| booking.boat.user == current_user && booking.status == "pending"}
+  # end
 
-  def show; end
 
   def new
     @boat = Boat.find(params[:boat_id])
@@ -41,7 +41,15 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
-private
+  def mybookings
+    @my_bookings = Booking.where(user: current_user)
+  end
+
+  def pending_requests
+    @pending_requests = Booking.select{ |booking| booking.boat.user == current_user && booking.status == "pending"}
+  end
+
+  private
 
   def set_booking
     @booking = Booking.find(params[:id])
