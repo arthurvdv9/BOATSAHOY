@@ -22,10 +22,10 @@
 
   <div class="buttons">
     <div class="allBookings-show-card">
-      <h5><%= link_to "Booking Details", boat_bookings_path(@boat), class: "btn btn-ghost" %></h5>
+      <h5><%= link_to "Booking Details", boat_bookings_path(@boat), class: "btn Mbtn-ghost" %></h5>
     </div>
     <div class="book-show-card">
-      <h5><%= link_to "Book this Boat!", new_boat_booking_path(@boat), class: "btn btn-flat" %></h5>
+      <h5><%= link_to "Book this Boat!", new_boat_booking_path(@boat), class: "btn Mbtn-flat" %></h5>
     </div>
       <h2 class="price-card"> From $ <strong><%= @boat.price %></strong> per day</h2>
   </div>

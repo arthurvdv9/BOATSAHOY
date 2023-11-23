@@ -1,29 +1,32 @@
+<div class="container">
 
 <div class="dashboard-button-container">
-  <button type="button" class="dashbuttons"><%= link_to "Booking demands", mybookings_path %></button>
-  <button type="button" class="dashbuttons"><%= link_to "Booking requests", pendingrequests_path %></button>
-  <button type="button" class="dashbuttons"><%= link_to "Add a boat", new_boat_path %></button>
+  <%= link_to "Booking demands", mybookings_path, class: "btn Mbtn-flat" %>
+  <%= link_to "Booking requests", pendingrequests_path, class: "btn Mbtn-flat" %>
+  <%= link_to "Add a boat", new_boat_path, class: "btn Mbtn-flat" %>
 </div>
 
-<div class="cards">
+<div class="cards m-5">
 
       <% @boats.each do |boat| %>
-        <div class="boat-card">
+
+      <%# ## Card trip %>
+      <div class="card-trip m-1">
+        <%= link_to boat_path(boat) do %>
+
           <% if boat.photo.attached? %>
             <%= cl_image_tag boat.photo.key, height: 300, width: 400, crop: :fill %>
           <% end %>
 
-          <div class="boat-infos">
+          <div class="boat-infos p-2">
             <h2><%= boat.name %></h2>
+            <p><%= boat.location %></p>
           </div>
 
-          <div class="buttons" style ="margin-right: 1rem;">
-            <div class="boat-detail-card">
-              <h5><%= link_to "See details!", boat_path(boat), class: "btn btn-flat" %></h5>
-            </div>
-          </div>
+        <% end %>
+      </div>
 
-        </div>
-      <% end %>
+    <% end %>
 
+</div>
 </div>
