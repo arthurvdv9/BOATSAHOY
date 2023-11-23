@@ -23,6 +23,7 @@
               <%= booking.end_date.strftime("%B %d, %Y") %></p>
               <p>Status: <%= booking.status %></p>
               <p>The total price is <%= booking.total_price %> for <%= booking.total_days %> days</p>
+              <%= link_to "Cancel booking", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn Mbtn-ghost" %>
             </div>
           </div>
         <% end %>

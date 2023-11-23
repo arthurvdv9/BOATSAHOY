@@ -50,6 +50,12 @@ class BookingsController < ApplicationController
     redirect_to pendingrequests_path
   end
 
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to mybookings_path
+  end
+
   private
 
   def set_booking
