@@ -1,4 +1,13 @@
 // Specific CSS for your home-page
+// * {
+//   font-family: 'Montserrat', sans-serif;
+//   font-size: 12px;
+//   color:#263554;
+//   }
+body {
+  background-color: white;
+}
+
 a {
   text-decoration: none;
 }
@@ -23,6 +32,6 @@ a {
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
-.container {
+.Hcontainer {
   text-align: center;
 }

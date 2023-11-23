@@ -1,10 +1,47 @@
-<%= simple_form_for (@boat) do |f| %>
-  <%= f.input :location %>
-  <%= f.input :name %>
-  <%= f.input :capacity %>
-  <%= f.input :price %>
-  <%= f.input :photo, as: :file %>
 
-  <%= f.submit "Add a boat!" %>
-<% end %>
-<p><%= link_to "Back to all boats", boats_path%></p>
+<div class="container">
+
+  <div class="p-5">
+    <h3 class="">Please add the details of your boat</h2>
+    <%= simple_form_for (@boat) do |f| %>
+
+      <div class="row">
+        <div class="col-6 mt-5">
+          <%= f.input :name %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6 mt-2">
+          <%= f.input :location%>
+        </div>
+      </div>
+
+      <div class="row d-flex">
+
+        <div class="col-3 mt-2">
+          <%= f.input :capacity %>
+        </div>
+
+        <div class="col-3 mt-2">
+          <%= f.input :price, label: 'Price (€)', error: 'Price is mandatory, please define a price' %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6 mt-2">
+          <%= f.input :photo, as: :file %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6 mt-4">
+          <%= f.submit "Add", class: "Mbtn-flat" %>
+        </div>
+      </div>
+
+      </div>
+
+    <% end %>
+  </div>
+</div>

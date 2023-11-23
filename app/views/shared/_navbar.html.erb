@@ -10,15 +10,19 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
+
         <% if user_signed_in? %>
+
           <li class="nav-item active">
-            <%= link_to "Home", "http://127.0.0.1:3000/", class: "nav-link" %>
+            <%= link_to "Home", "/", class: "nav-link" %>
           </li>
+
           <li class="nav-item active">
-            <%= link_to "Dashboard", "http://127.0.0.1:3000/dashboard", class: "nav-link" %>
+            <%= link_to "Dashboard", "/dashboard", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "", "#", class: "nav-link" %>
+            <%# TODO: link not working %>
+            <%# <%= link_to "Add boat", "/boats/new", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

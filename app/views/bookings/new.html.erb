@@ -1,11 +1,30 @@
-<h1>Booking:</h1>
- <%= simple_form_for [@boat, @booking] do |f| %>
-  <%= f.input :start_date,
-            as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
-    <%= f.input :end_date,
-            as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
+<div class="container">
 
-  <%= f.submit "Submit!" %>
-<% end %>
+  <%# style="background-color: #D1DDE8" %>
+  <div class="p-5">
+    <h3 class="">Booking dates</h3>
+    <%= simple_form_for [@boat, @booking] do |f| %>
+
+      <div class="row d-flex">
+        <div class="col-3 mt-4">
+          <%= f.input :start_date,
+                    as: :string,
+                    input_html: { data: { controller: "datepicker" } } %>
+        </div>
+
+        <div class="col-3 mt-4">
+          <%= f.input :end_date,
+                  as: :string,
+                  input_html: { data: { controller: "datepicker" } } %>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-6 mt-4 mb-6">
+          <%= f.submit "Book!", class: "Mbtn-flat" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
