@@ -1,16 +1,18 @@
 <div class="container">
 
-<div class="dashboard-button-container">
-  <%= link_to "Booking demands", mybookings_path, class: "btn Mbtn-flat" %>
-  <%= link_to "Booking requests", pendingrequests_path, class: "btn Mbtn-flat" %>
-  <%= link_to "Add a boat", new_boat_path, class: "btn Mbtn-flat" %>
+
+<h3 class="ms-5 mt-4"><strong>Bookings</strong></h3>
+<div class="dashboard-button-container ms-5 mt-4">
+  <%= link_to "My booking requests", mybookings_path, class: "btn Mbtn-flat" %>
+  <%= link_to "Requests for my boats", pendingrequests_path, class: "btn Mbtn-flat ms-3" %>
 </div>
 
 
-<div class="cards m-5">
+<h3 class="ms-5 mt-5"><strong>My boats</strong></h3>
+
+<div class="cards ms-5 mt-4">
 
       <% @boats.each do |boat| %>
-
       <%# ## Card trip %>
       <div class="card-trip m-1">
         <%= link_to boat_path(boat) do %>
@@ -19,13 +21,16 @@
             <%= cl_image_tag boat.photo.key, height: 300, width: 400, crop: :fill %>
           <% end %>
 
-          <div class="boat-infos p-2">
-            <h2><%= boat.name %></h2>
-            <p><%= boat.location %></p>
+          <div class="boat-infos p-3">
+            <h2><%= boat.name.capitalize %></h2>
+            <p><%= boat.location.capitalize %></p>
           </div>
 
         <% end %>
-      <%= link_to "Delete", boat_path(boat), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn Mbtn-ghost" %>
+
+        <div class="buttons p-3">
+          <%= link_to "Delete", boat_path(boat), class:"m-2", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn Mbtn-ghost" %>
+        </div>
       </div>
 
     <% end %>

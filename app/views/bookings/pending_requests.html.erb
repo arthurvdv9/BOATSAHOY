@@ -1,11 +1,15 @@
 <div class="container">
-  <h1 class="title p-2">Requests made for your boats</h1>
 
+  <%# Title and message: %>
+  <div class="m-5">
+    <h3>Requests made for your boats</h3>
 
     <% if @pending_requests.empty? %>
       <p>You currently have no requests</p>
       <% else %>
       <p>Please Accept or reject</p>
+  </div>
+      <%# grid %>
       <div class="cards m-5">
 
       <% @pending_requests.each do |booking| %>
@@ -16,25 +20,26 @@
               <%= cl_image_tag booking.boat.photo.key, height: 300, width: 400, crop: :fill %>
             </div>
 
-            <div class="booking-info p-2">
+            <div class="booking-info p-3 m-1">
               <h2><%= booking.boat.name %> in <%= booking.boat.location %> 📍</h2>
-              <p>From <%= booking.start_date.strftime("%B %d, %Y") %> to
+              <p class="mt-2"><strong>From </strong><%= booking.start_date.strftime("%B %d, %Y") %> to
               <%= booking.end_date.strftime("%B %d, %Y") %></p>
-              <p>Status: <%= booking.status %></p>
-              <p>The total price is <%= booking.total_price %> for <%= booking.total_days %> days</p>
+              <p><strong>Status:</strong> <%= booking.status %></p>
+              <p><strong>Price:</strong><%= booking.total_price %> for <%= booking.total_days %> days</p>
+            </div>
 
-
+            <div class = "p-3">
               <%= link_to "Accept", accept_path(booking), data: {turbo_method: :patch} , class: "btn Mbtn-flat"%>
               <%= link_to "Reject", reject_path(booking), data: {turbo_method: :patch} , class: "btn Mbtn-ghost"%>
-
             </div>
+
           </div>
         <% end %>
       <% end %>
-      </div>
+    </div>
 
 
-      <p>These are previous requests</p>
+      <p class="m-5">These are previous requests</p>
       <div class="cards m-5">
       <% @pending_requests.each do |booking| %>
         <% if  booking.status != "pending" %>
@@ -44,12 +49,12 @@
           <%= cl_image_tag booking.boat.photo.key, height: 300, width: 400, crop: :fill %>
           </div>
 
-          <div class="booking-info p-2">
+          <div class="booking-info p-3 m-1">
           <h2><%= booking.boat.name %> in <%= booking.boat.location %> 📍</h2>
-          <p>From <%= booking.start_date.strftime("%B %d, %Y") %> to
+          <p class="mt-2"><strong>From</strong> <%= booking.start_date.strftime("%B %d, %Y") %> to
           <%= booking.end_date.strftime("%B %d, %Y") %></p>
-          <p>Status: <%= booking.status %></p>
-          <p>Total price was <%= booking.total_price %> for <%= booking.total_days %> days</p>
+          <p><strong>Status:</strong> <%= booking.status %></p>
+          <p><strong>Price:</strong> <%= booking.total_price %> for <%= booking.total_days %> days</p>
 
           </div>
           </div>
