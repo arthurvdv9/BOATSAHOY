@@ -1,21 +1,52 @@
- <h1>Booking demands</h1>
-  <div class="container align-items-center justify-content-center">
+ <div class="container">
+   <h1>Booking demands</h1>
 
-    <% @my_bookings.each do |booking| %>
 
-        <div class="booking-card m-2", style = "background-color: white;">
+    <% if @my_bookings.empty? %>
+      <p>You currently have no booking demands</p>
+    <% else %>
+
+      <p>Waiting for owners acceptance</p>
+      <div class="cards m-5">
+
+      <% @my_bookings.each do |booking| %>
+        <% if  booking.status == "pending" %>
+          <div class="card-trip m-1">
+
+            <div class="booking-pic">
+              <%= cl_image_tag booking.boat.photo.key, height: 300, width: 400, crop: :fill %>
+            </div>
+
+            <div class="booking-info p-2">
+              <h2><%= booking.boat.name %> in <%= booking.boat.location %> 📍</h2>
+              <p>From <%= booking.start_date %> to
+              <%= booking.end_date %></p>
+              <p>Status: <%= booking.status %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+      </div>
+
+      <p>These are your previous bookings</p>
+      <div class="cards m-5">
+      <% @my_bookings.each do |booking| %>
+        <% if  booking.status != "pending" %>
+          <div class="card-trip m-1">
 
           <div class="booking-pic">
-            <%= cl_image_tag booking.boat.photo.key, height: 300, width: 400, crop: :fill %>
+          <%= cl_image_tag booking.boat.photo.key, height: 300, width: 400, crop: :fill %>
           </div>
 
-          <div class="booking-info">
-            <h2><%= booking.boat.name %> in <%= booking.boat.location %> 📍</h2>
-            <p>From <%= booking.start_date %> to
-            <%= booking.end_date %></p>
-            <p>Status: <%= booking.status %></p>
+          <div class="booking-info p-2">
+          <h2><%= booking.boat.name %> in <%= booking.boat.location %> 📍</h2>
+          <p>From <%= booking.start_date %> to
+          <%= booking.end_date %></p>
+          <p>Status: <%= booking.status %></p>
 
           </div>
-        </div>
-
+          </div>
+        <% end %>
+      <% end %>
+      </div>
     <% end %>

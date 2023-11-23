@@ -46,7 +46,8 @@ class BookingsController < ApplicationController
   end
 
   def pending_requests
-    @pending_requests = Booking.select{ |booking| booking.boat.user == current_user && booking.status == "pending"}
+    # @pending_requests = Booking.select{ |booking| booking.boat.user == current_user && booking.status == "pending"}
+    @pending_requests = Booking.select{ |booking| booking.boat.user == current_user }
   end
 
   private
