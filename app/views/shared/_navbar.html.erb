@@ -13,19 +13,20 @@
 
         <% if user_signed_in? %>
 
-          <li class="nav-item active">
+          <li class="nav-item active ms-3">
             <%= link_to "Home", "/", class: "nav-link" %>
           </li>
 
-          <li class="nav-item active">
+          <li class="nav-item active ms-3">
             <%= link_to "Dashboard", "/dashboard", class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <%# TODO: link not working %>
-            <%# <%= link_to "Add boat", "/boats/new", class: "nav-link" %>
+
+          <li class="nav-item ms-3">
+            <%= link_to "Add boat", "/boats/new", class: "nav-link" %>
           </li>
+
           <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a href="#" class="avatar ms-3" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= image_tag "https://i0.wp.com/i.pinimg.com/originals/b4/af/03/b4af03c90cbbdbd6dfe3ba2cf63fa8f6.jpg?ssl=1", class: "avatar", alt: "dropdown menu" %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
