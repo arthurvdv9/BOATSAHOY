@@ -1,62 +1,38 @@
-<div class="container m-4">
+<div class="container">
 
-
-  <div class="">
-    <div class="text-center">
-      <h1> <strong>Ready</strong> to <strong>sail away?</strong></h1>
-      <p>From a city lake to the open sea, make your next boat ride plain sailing.</p>
-    </div>
-
-<div class="row justify-content-center">
-  <div class="col-sm-8 my-3">
-    <%= form_with url: boats_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Search by location!"
-        %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-    <% end %>
+  <div class="w-100 m-0">
+    <h1> <strong>Ready</strong> to <strong>sail away?</strong></h1>
+    <p>From a city lake to the open sea, make your next boat ride plain sailing.</p>
   </div>
-</div>
 
-    <% if @boats.any? %>
-          <% @boats.each do |boat| %>
-          <% end %>
-        <% else %>
-          <em>Sorry, no boats found for your location.</em>
-        <% end %>
+  <div class="" style=" height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 
-    <div class="" style=" height: 600px;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
+  <%# ## Card grid %>
+  <div class="cards m-5">
 
-    <div class="cards">
+    <% @boats.each do |boat| %>
 
-      <% @boats.each do |boat| %>
-        <div class="boat-card">
+      <%# ## Card trip %>
+      <div class="card-trip m-1">
+        <%= link_to boat_path(boat) do %>
+
           <% if boat.photo.attached? %>
             <%= cl_image_tag boat.photo.key, height: 300, width: 400, crop: :fill %>
           <% end %>
 
-          <div class="boat-infos">
+          <div class="boat-infos p-2">
             <h2><%= boat.name %></h2>
+            <p><%= boat.location %></p>
           </div>
 
-          <div class="buttons" style ="margin-right: 1rem;">
-            <div class="boat-detail-card">
-              <h5><%= link_to "See details!", boat_path(boat), class: "btn btn-flat" %></h5>
-            </div>
-          </div>
+        <% end %>
+      </div>
 
-        </div>
-      <% end %>
-<%# TODO this button %>
-      <%# <a href="/bookings" class="btn btn-ghost mt-3">See My bookings</a> %>
+    <% end %>
 
-    </div>
   </div>
-</div>
 </div>
