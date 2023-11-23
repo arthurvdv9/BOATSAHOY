@@ -22,7 +22,7 @@
               <p>From <%= booking.start_date.strftime("%B %d, %Y") %> to
               <%= booking.end_date.strftime("%B %d, %Y") %></p>
               <p>Status: <%= booking.status %></p>
-              <p>The total price is <%= booking.total_price %></p>
+              <p>The total price is <%= booking.total_price %> for <%= booking.total_days %> days</p>
             </div>
           </div>
         <% end %>
@@ -44,7 +44,7 @@
           <p>From <%= booking.start_date.strftime("%B %d, %Y") %> to
           <%= booking.end_date.strftime("%B %d, %Y") %></p>
           <p>Status: <%= booking.status %></p>
-          <p>Total price was <%= booking.total_price %></p>
+          <p>Total price was <%= booking.total_price %> for <%= booking.total_days %> days</p>
 
           </div>
           </div>
