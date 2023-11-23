@@ -1,10 +1,31 @@
 <div class="container m-4">
 
+
   <div class="">
     <div class="text-center">
       <h1> <strong>Ready</strong> to <strong>sail away?</strong></h1>
       <p>From a city lake to the open sea, make your next boat ride plain sailing.</p>
     </div>
+
+<div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: boats_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Search by location!"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+    <% if @boats.any? %>
+          <% @boats.each do |boat| %>
+          <% end %>
+        <% else %>
+          <em>Sorry, no boats found for your location.</em>
+        <% end %>
 
     <div class="" style=" height: 600px;"
       data-controller="map"
