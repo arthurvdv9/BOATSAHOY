@@ -6,6 +6,7 @@
   <%= link_to "Add a boat", new_boat_path, class: "btn Mbtn-flat" %>
 </div>
 
+
 <div class="cards m-5">
 
       <% @boats.each do |boat| %>
@@ -24,6 +25,7 @@
           </div>
 
         <% end %>
+      <%= link_to "Delete", boat_path(boat), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn Mbtn-ghost" %>
       </div>
 
     <% end %>
