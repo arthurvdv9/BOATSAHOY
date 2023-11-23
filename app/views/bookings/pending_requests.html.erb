@@ -1,0 +1,28 @@
+<h1>Requests made for your boats</h1>
+
+  <div class="container align-items-center justify-content-center">
+  <% if @pending_requests.empty? %>
+  <p>You currently have no requests</p>
+  <% else %>
+  <% @pending_requests.each do |booking| %>
+
+      <div class="booking-card m-2", style = "background-color: white;">
+
+        <div class="booking-pic">
+          <%= cl_image_tag booking.boat.photo.key, height: 300, width: 400, crop: :fill %>
+        </div>
+
+        <div class="booking-info">
+          <h2><%= booking.boat.name %> in <%= booking.boat.location %> 📍</h2>
+          <p>From <%= booking.start_date %> to
+          <%= booking.end_date %></p>
+          <p>Status: <%= booking.status %></p>
+
+        </div>
+      </div>
+
+  <% end %>
+
+
+</div>
+<% end %>

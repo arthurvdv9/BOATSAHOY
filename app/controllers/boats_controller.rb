@@ -13,9 +13,10 @@ class BoatsController < ApplicationController
         #info_window_html:render_to_string(partial: "info_window", locals: {boat: boat}),
         marker_html: render_to_string(partial: "marker")
       }
-      end
     end
   end
+end
+
   def show
   end
 
