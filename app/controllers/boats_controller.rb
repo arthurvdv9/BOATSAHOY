@@ -12,8 +12,10 @@ class BoatsController < ApplicationController
         lng: boat.longitude
       }
   end
+
     end
       end
+
   def show
   end
 
