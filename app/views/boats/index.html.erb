@@ -36,20 +36,20 @@
   </div>
 
   <%# ## Card grid %>
-  <h2 class="text-center mt-4">Boats you can rent</h2>
+  <h2 class="text-center my-5">Boats you can rent</h2>
   <div class="cards">
 
     <% @boats.each do |boat| %>
 
       <%# ## Card trip %>
-      <div class="card-trip m-1">
+      <div class="card-trip mb-5">
         <%= link_to boat_path(boat) do %>
 
           <% if boat.photo.attached? %>
             <%= cl_image_tag boat.photo.key, height: 300, width: 400, crop: :fill %>
           <% end %>
 
-          <div class="boat-infos p-2">
+          <div class="boat-infos p-3">
             <h2><%= boat.name.capitalize %></h2>
             <p><%= boat.location.capitalize %></p>
           </div>
