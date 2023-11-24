@@ -1,21 +1,69 @@
- <h1>Booking demands</h1>
-  <div class="container align-items-center justify-content-center">
+ <div class="container">
 
-    <% @my_bookings.each do |booking| %>
+  <%# Title and message: %>
+  <div class="m-5">
+   <h3>My booking requests</h3>
 
-        <div class="booking-card m-2", style = "background-color: white;">
+    <%# I think we need to iterate here too, this line is not running
+    where is the end? %>
+    <% if @my_bookings.empty? %>
+      <p>You currently have no booking demands</p>
+    <% else %>
+
+    <p class="">Waiting for owners acceptance</p>
+  </div>
+
+
+    <%# grid %>
+    <div class="cards m-5">
+
+      <% @my_bookings.each do |booking| %>
+        <% if  booking.status == "pending" %>
+          <div class="card-trip m-1">
+            <div class="booking-pic">
+              <%= cl_image_tag booking.boat.photo.key, height: 300, width: 400, crop: :fill %>
+            </div>
+
+            <div class="booking-info p-3 m-1">
+              <h2><%= booking.boat.name %> in <%= booking.boat.location %> 📍</h2>
+              <p class="mt-2"><strong>From </strong><%= booking.start_date.strftime("%B %d, %Y") %> to
+              <%= booking.end_date.strftime("%B %d, %Y") %></p>
+              <p><strong>Status:</strong> <%= booking.status %></p>
+              <p><strong>Price:</strong> <%= booking.total_price %> for <%= booking.total_days %> days</p>
+            </div>
+
+            <div class= "m-3 text-center">
+              <%= link_to "Cancel booking", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn Mbtn-ghost" %>
+            </div>
+
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+      <%# TODO: I dont understand this section history or answered requests?
+      Makes sense showing the rejected with "price was"%>
+      <p class="m-5">These are your previous bookings</p>
+      <div class="cards m-5">
+      <% @my_bookings.each do |booking| %>
+        <% if  booking.status != "pending" %>
+          <div class="card-trip m-1">
 
           <div class="booking-pic">
-            <%= cl_image_tag booking.boat.photo.key, height: 300, width: 400, crop: :fill %>
+          <%= cl_image_tag booking.boat.photo.key, height: 300, width: 400, crop: :fill %>
           </div>
 
-          <div class="booking-info">
-            <h2><%= booking.boat.name %> in <%= booking.boat.location %> 📍</h2>
-            <p>From <%= booking.start_date %> to
-            <%= booking.end_date %></p>
-            <p>Status: <%= booking.status %></p>
+          <div class="booking-info p-3 m-1">
+          <h2><%= booking.boat.name %> in <%= booking.boat.location %> 📍</h2>
+          <p class="mt-2"><strong>From</strong> <%= booking.start_date.strftime("%B %d, %Y") %> to
+          <%= booking.end_date.strftime("%B %d, %Y") %></p>
+          <p><strong>Status:</strong> <%= booking.status %></p>
+          <p><strong>Price:</strong> <%= booking.total_price %> for <%= booking.total_days %> days</p>
 
           </div>
-        </div>
-
+          </div>
+        <% end %>
+      <% end %>
+      </div>
     <% end %>
+</div>

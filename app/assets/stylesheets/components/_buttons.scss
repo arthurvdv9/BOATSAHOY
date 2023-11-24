@@ -1,4 +1,10 @@
-  .btn-flat {
+
+
+.buttons {
+  margin-left: auto;
+  }
+
+  .Mbtn-flat {
     color: white;
     padding: 8px 24px;
     border-radius: 4px;
@@ -7,12 +13,12 @@
     font-family: 'Montserrat', sans-serif;
   }
 
-  .btn-flat:hover {
+  .Mbtn-flat:hover {
     background:#374661;
     color: white;
   }
 
-  .btn-ghost {
+  .Mbtn-ghost {
     color: #263554;
     border: 1px solid #263554;
     padding: 8px 24px;
@@ -23,7 +29,7 @@
     font-family: 'Montserrat', sans-serif;
   }
 
-  .btn-ghost:hover {
+  .Mbtn-ghost:hover {
     opacity: 1;
   }
 
