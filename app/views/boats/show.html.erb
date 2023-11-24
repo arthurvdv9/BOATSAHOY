@@ -16,6 +16,7 @@
     <img src="https://images.unsplash.com/photo-1682686581218-82326951f4ad?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="replace img">
     <% end %>
   </div>
+
   <div class="bottom-section">
     <div class="single-boat-card-infos">
       <h2><%= @boat.name %></h2>
@@ -46,6 +47,7 @@
       <div class="book-show-card">
         <h5><%= link_to "Book this Boat!", new_boat_booking_path(@boat), class: "btn btn-flat boat-button" %></h5>
       </div>
+
     </div>
   </div>
 </div>

@@ -27,26 +27,33 @@ class BookingsController < ApplicationController
     end
   end
 
-  def accept
-    @booking = Booking.find(params[:id])
-    @booking.status = "accepted"
-    @booking.save
-    redirect_to bookings_path
-  end
-
-  def reject
-    @booking = Booking.find(params[:id])
-    @booking.status = "rejected"
-    @booking.save
-    redirect_to bookings_path
+  def pending_requests
+    # @pending_requests = Booking.select{ |booking| booking.boat.user == current_user && booking.status == "pending"}
+    @pending_requests = Booking.select{ |booking| booking.boat.user == current_user }
   end
 
   def mybookings
     @my_bookings = Booking.where(user: current_user)
   end
 
-  def pending_requests
-    @pending_requests = Booking.select{ |booking| booking.boat.user == current_user && booking.status == "pending"}
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.status = "accepted"
+    @booking.save
+    redirect_to pendingrequests_path
+  end
+
+  def reject
+    @booking = Booking.find(params[:id])
+    @booking.status = "rejected"
+    @booking.save
+    redirect_to pendingrequests_path
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to mybookings_path
   end
 
   private

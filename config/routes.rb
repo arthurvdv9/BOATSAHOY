@@ -13,14 +13,14 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :boats, except: [:destroy, :edit] do
+  resources :boats, except: [:edit] do
     resources :bookings, except: [:destroy]
-    patch "/bookings/:id/accept", to: "bookings#accept", as: "accept"
-    patch "/bookings/:id/reject", to: "bookings#reject", as: "reject"
   end
   resources :bookings, only: [:destroy]
 
   get "/mybookings", to: "bookings#mybookings", as: "mybookings"
   get "/pendingrequests", to: "bookings#pending_requests", as: "pendingrequests"
+  patch "/bookings/:id/accept", to: "bookings#accept", as: "accept"
+  patch "/bookings/:id/reject", to: "bookings#reject", as: "reject"
 
 end

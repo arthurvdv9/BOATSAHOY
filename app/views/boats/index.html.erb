@@ -1,44 +1,43 @@
 
-<div class="container m-4">
+<div class="container">
 
+  <div class="w-100 mt-5 text-center">
+    <h1> <strong>Ready</strong> to <strong>sail away?</strong></h1>
+    <p>From a city lake to the open sea, make your next boat ride plain sailing.</p>
+  </div>
 
-  <div class="">
-    <div class="text-center">
-      <h1> <strong>Ready</strong> to <strong>sail away?</strong></h1>
-      <p>From a city lake to the open sea, make your next boat ride plain sailing.</p>
+  <%# Search bar %>
+  <div class="row justify-content-center">
+    <div class="col-sm-8 my-3">
+      <%= form_with url: boats_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Search by location!"
+          %>
+        <%= submit_tag "Search", name: "", class: "Mbtn-flat" %>
+      <% end %>
+
+      <% if @boats.any? %>
+        <% @boats.each do |boat| %>
+        <% end %>
+      <% else %>
+        <em>Sorry, no boats found for your location.</em>
+      <% end %>
+
     </div>
 
-
-<div class="row justify-content-center">
-  <div class="col-sm-8 my-3">
-    <%= form_with url: boats_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Search by location!"
-        %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-    <% end %>
+    <div class="p-3 m-5" style=" height: 600px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
 
   </div>
-
-
-    <% if @boats.any? %>
-          <% @boats.each do |boat| %>
-          <% end %>
-        <% else %>
-          <em>Sorry, no boats found for your location.</em>
-        <% end %>
-
-  <div class="" style=" height: 600px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-
 
   <%# ## Card grid %>
-  <div class="cards m-5">
+  <h2 class="text-center mt-3"><strong>Boats you can rent</strong></h2>
+  <div class="cards">
 
     <% @boats.each do |boat| %>
 
@@ -51,8 +50,8 @@
           <% end %>
 
           <div class="boat-infos p-2">
-            <h2><%= boat.name %></h2>
-            <p><%= boat.location %></p>
+            <h2><%= boat.name.capitalize %></h2>
+            <p><%= boat.location.capitalize %></p>
           </div>
 
         <% end %>
