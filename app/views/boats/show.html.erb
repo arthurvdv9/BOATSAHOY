@@ -1,22 +1,13 @@
-
+<%# test comment %>
 <div class="single-boat-card">
-  <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-  <div class="search-form-control form-group">
-    <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-    <button name="button" type="submit" class="btn btn-flat">
-      <i class="fas fa-search"></i>
-    </button>
-  </div>
-<% end %>
   <h1 class="single-boat-card-title"><%= @boat.name %>, <%= @boat.location %> </h1>
   <div class="top-section">
     <% if @boat.photo.attached?%>
       <%= cl_image_tag @boat.photo.key, height: 200, width: 100, crop: :fill%>
     <% else  %>
-    <img src="https://images.unsplash.com/photo-1682686581218-82326951f4ad?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="replace img">
+    <img src="https://plus.unsplash.com/premium_photo-1689177356545-cf029fdaf9cb?q=80&w=2680&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="replace img">
     <% end %>
   </div>
-
   <div class="bottom-section">
     <div class="single-boat-card-infos">
       <h2><%= @boat.name %></h2>
@@ -42,12 +33,11 @@
     </div>
     <div class="boat-card-buttons">
       <div class="allBookings-show-card">
-        <h5><%= link_to "Booking Details", boat_bookings_path(@boat), class: "btn btn-ghost boat-button" %></h5>
+        <%= link_to "My booking requests", mybookings_path, class: "Mbtn btn-ghost boat-button" %>
       </div>
       <div class="book-show-card">
-        <h5><%= link_to "Book this Boat!", new_boat_booking_path(@boat), class: "btn btn-flat boat-button" %></h5>
+        <%= link_to "Book this Boat!", new_boat_booking_path(@boat), class: "Mbtn btn-flat boat-button" %>
       </div>
-
     </div>
   </div>
 </div>
