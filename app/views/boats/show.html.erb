@@ -1,32 +1,53 @@
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.squarespace-cdn.com/content/v1/536bc856e4b06d13b2b98543/1444874692546-E68CBBDJD6Q77SQ214NA/Untitled+design-5.png?format=2500w);">
-  <div class="container">
-    <h1> <strong>Ready</strong> to <strong>sail away?</strong></h1>
-    <p>From a city lake to the open sea, make your next boat ride plain sailing.</p>
+<div class="single-boat-card">
+  <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+  <div class="search-form-control form-group">
+    <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+    <button name="button" type="submit" class="btn btn-flat">
+      <i class="fas fa-search"></i>
+    </button>
   </div>
-</div>
+<% end %>
+  <h1 class="single-boat-card-title"><%= @boat.name %>, <%= @boat.location %> </h1>
+  <div class="top-section">
+    <% if @boat.photo.attached?%>
+      <%= cl_image_tag @boat.photo.key, height: 200, width: 100, crop: :fill%>
+    <% else  %>
+    <img src="https://images.unsplash.com/photo-1682686581218-82326951f4ad?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="replace img">
+    <% end %>
+  </div>
 
-<div class="boat-card mt-5">
-
-  <div class="boat-infos boat-card-image p-2 d-flex">
-    <div class="m-2">
-      <%= cl_image_tag @boat.photo.key, height: 300, width: 400, crop: :fill %>
-    </div>
-
-    <div class="m-2">
+  <div class="bottom-section">
+    <div class="single-boat-card-infos">
       <h2><%= @boat.name %></h2>
-      <p class="boat-show-location">Location: <%= @boat.location %></p>
-      <p>Boat capacity: <%= @boat.capacity %></p>
+      <div>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="single-boat-card-user avatar-bordered" />
+        <span class="username"> Owner <%= @boat.user.first_name %></span>
+      </div>
+      <div class="info-block">
+        <%= image_tag "icons/style-three-pin-sailing-boat-7.png"%>
+        <span class="boat-amenities"> <%= @boat.location %></span>
+         <p class="boat-amenities-info"> Here is the location where you will board your boat</p>
+      </div>
+      <div class="info-block">
+        <%= image_tag "icons/multiple-neutral-1_1.png"%>
+        <span class="boat-amenities"> <%= @boat.capacity %> adults, no pets</span>
+        <p class="boat-amenities-info"> For safety issues pets are not allowed onboard </p>
+      </div>
+      <div class="info-block">
+        <%= image_tag "icons/cash-briefcase-8.png"%>
+        <span class="boat-amenities"> From <strong><%= @boat.price %></strong> EUR per day</span>
+         <p class="boat-amenities-info"> For half day fees, please contact the owner</p>
+      </div>
     </div>
-  </div>
+    <div class="boat-card-buttons">
+      <div class="allBookings-show-card">
+        <h5><%= link_to "Booking Details", boat_bookings_path(@boat), class: "btn btn-ghost boat-button" %></h5>
+      </div>
+      <div class="book-show-card">
+        <h5><%= link_to "Book this Boat!", new_boat_booking_path(@boat), class: "btn btn-flat boat-button" %></h5>
+      </div>
 
-  <div class="buttons">
-    <div class="allBookings-show-card">
-      <h5><%= link_to "Booking Details", boat_bookings_path(@boat), class: "btn Mbtn-ghost" %></h5>
     </div>
-    <div class="book-show-card">
-      <h5><%= link_to "Book this Boat!", new_boat_booking_path(@boat), class: "btn Mbtn-flat" %></h5>
-    </div>
-      <h2 class="price-card"> From $ <strong><%= @boat.price %></strong> per day</h2>
   </div>
 </div>
