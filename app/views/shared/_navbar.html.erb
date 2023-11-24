@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to "#", class: "navbar-brand" do %>
-      <%# <%= image_tag "https://dynamic.brandcrowd.com/asset/logo/9625cc7f-04c1-4a05-abd7-abccb1dccf52/insta-square?logoTemplateVersion=1&v=637516463426400000" %>
+      <%#= image_tag "https://dynamic.brandcrowd.com/asset/logo/9625cc7f-04c1-4a05-abd7-abccb1dccf52/insta-square?logoTemplateVersion=1&v=637516463426400000" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,15 +14,28 @@
         <% if user_signed_in? %>
 
           <li class="nav-item active ms-3">
-            <%= link_to "Home", "/", class: "nav-link" %>
+          <div class="d-flex flex-column justify-items-center">
+            <%= link_to "/", class: "nav-link" do %>
+             <i class="fas fa-thin fa-house"></i><br>Home
+            <% end %>
+          </div>
+
           </li>
 
           <li class="nav-item active ms-3">
-            <%= link_to "Dashboard", "/dashboard", class: "nav-link" %>
+          <div class="d-flex flex-column justify-items-center">
+            <%= link_to "/dashboard", class: "nav-link" do %>
+              <i class="fas fa-table-columns"></i><br>Dashboard
+            <% end %>
+          </div>
           </li>
 
           <li class="nav-item ms-3">
-            <%= link_to "Add Boat", "/boats/new", class: "nav-link" %>
+           <div class="d-flex flex-column justify-items-center">
+            <%= link_to  "/boats/new", class: "nav-link" do %>
+            <i class="fas fa-light fa-sailboat"></i><br>Add Boat
+             <% end %>
+          </div>
           </li>
 
           <li class="nav-item dropdown">
