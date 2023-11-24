@@ -58,6 +58,7 @@
             <p><%= boat.location.capitalize %></p>
             <p><%= number_to_currency(boat.price,  unit: "€", precision: 2)%> / day</p>
             </div>
+            <p><%= boat.boat_type.capitalize %></p>
           </div>
 
         <% end %>
