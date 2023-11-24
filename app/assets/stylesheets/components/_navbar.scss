@@ -6,6 +6,7 @@
   position:fixed;
   top:0;
   width:100%;
+  z-index: 1000;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -17,3 +18,6 @@
 }
 
 
+.style_image {
+  height: 50px;
+}

@@ -9,22 +9,28 @@
     <% end %>
   </div>
   <div class="bottom-section">
+
+
     <div class="single-boat-card-infos">
       <h2><%= @boat.name %></h2>
+
       <div>
         <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="single-boat-card-user avatar-bordered" />
         <span class="username"> Owner <%= @boat.user.first_name %></span>
       </div>
+
       <div class="info-block">
         <%= image_tag "icons/style-three-pin-sailing-boat-7.png"%>
         <span class="boat-amenities"> <%= @boat.location %></span>
          <p class="boat-amenities-info"> Here is the location where you will board your boat</p>
       </div>
+
       <div class="info-block">
         <%= image_tag "icons/multiple-neutral-1_1.png"%>
         <span class="boat-amenities"> <%= @boat.capacity %> adults, no pets</span>
         <p class="boat-amenities-info"> For safety issues pets are not allowed onboard </p>
       </div>
+
       <div class="info-block">
         <%= image_tag "icons/cash-briefcase-8.png"%>
         <span class="boat-amenities"> From <strong><%= @boat.price %></strong> EUR per day</span>
