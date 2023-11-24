@@ -22,7 +22,7 @@ class BookingsController < ApplicationController
 
 
     if @booking.save!
-      redirect_to my_bookings_path notice:"Booking was successfully created."
+      redirect_to mybookings_path notice:"Booking was successfully created."
 
     else
       render :index, status: :unprocessable_entity
