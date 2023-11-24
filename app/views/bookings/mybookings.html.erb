@@ -2,7 +2,7 @@
 
   <%# Title and message: %>
   <div class="m-5">
-   <h2>My booking requests</h2>
+   <h1>My booking requests</h1>
 
     <%# I think we need to iterate here too, this line is not running
     where is the end? %>
@@ -43,7 +43,7 @@
 
       <%# TODO: I dont understand this section history or answered requests?
       Makes sense showing the rejected with "price was"%>
-      <h3 class="ms-5 mt-5">Previous bookings</h3>
+      <h1 class="ms-5 mt-5">Previous bookings</h1>
       <div class="cards m-5">
       <% @my_bookings.each do |booking| %>
         <% if  booking.status != "pending" %>

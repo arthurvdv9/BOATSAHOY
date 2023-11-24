@@ -1,17 +1,15 @@
 <div class="container">
 
   <%# Title and message: %>
-  <div class="m-5">
-    <h3>Requests made for your Boats</h3>
+
+    <h1 class="m-5">Requests made for your Boats</h1>
 
     <% if @pending_requests.empty? %>
       <p>You currently have no requests</p>
-      <% else %>
-      <p>Please Accept or Reject</p>
-  </div>
+    <% else %>
+
       <%# grid %>
       <div class="cards m-5">
-
       <% @pending_requests.each do |booking| %>
         <% if  booking.status == "pending" %>
           <div class="card-trip m-1">
@@ -39,7 +37,7 @@
     </div>
 
 
-      <p class="m-5">These are previous requests</p>
+      <h1 class="m-5">Previous requests</h1>
       <div class="cards m-5">
       <% @pending_requests.each do |booking| %>
         <% if  booking.status != "pending" %>
@@ -53,7 +51,11 @@
           <h2><%= booking.boat.name %> in <%= booking.boat.location %> 📍</h2>
           <p class="mt-2"><strong>From</strong> <%= booking.start_date.strftime("%B %d, %Y") %> to
           <%= booking.end_date.strftime("%B %d, %Y") %></p>
-          <p><strong>Status:</strong> <%= booking.status %></p>
+          <% if booking.status == "accepted" %>
+            <p><strong>Status:</strong> <span class = "text-success"><%= booking.status %></span></p>
+          <% else %>
+            <p><strong>Status:</strong> <span class = "text-danger"><%= booking.status%></span></p>
+          <% end %>
           <p><strong>Price:</strong> <%= booking.total_price %> for <%= booking.total_days %> days</p>
 
           </div>
