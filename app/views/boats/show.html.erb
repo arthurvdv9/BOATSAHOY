@@ -30,7 +30,19 @@
         <span class="boat-amenities"> From <strong><%= @boat.price %></strong> EUR per day</span>
          <p class="boat-amenities-info"> For half day fees, please contact the owner</p>
       </div>
+
+      <div class="info-block">
+        <%= image_tag "icons/sailing-boat-water-1-6.png"%>
+        <span class="boat-amenities"> From <strong><%= @boat.price %></strong> EUR per day</span>
+         <p class="boat-amenities-info"> For half day fees, please contact the owner</p>
+      </div>
+
+
+
+
+
     </div>
+
     <div class="boat-card-buttons">
       <div class="allBookings-show-card">
         <%= link_to "My booking requests", mybookings_path, class: "btn Mbtn-ghost boat-button" %>
