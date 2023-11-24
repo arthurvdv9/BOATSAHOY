@@ -33,8 +33,8 @@
 
       <div class="info-block">
         <%= image_tag "icons/sailing-boat-water-1-6.png"%>
-        <span class="boat-amenities"> From <strong><%= @boat.price %></strong> EUR per day</span>
-         <p class="boat-amenities-info"> For half day fees, please contact the owner</p>
+        <span class="boat-amenities"><%= @boat.boat_type.capitalize %></span>
+         <%# <p class="boat-amenities-info"> For half day fees, please contact the owner</p> %>
       </div>
 
 
