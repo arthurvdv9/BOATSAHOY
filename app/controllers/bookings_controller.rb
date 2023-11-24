@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
     @booking.boat = Boat.find(params[:boat_id])
     @booking.user = current_user
 
-    if @booking.save
+    if @booking.save!
       redirect_to boats_path notice:"Booking was successfully created."
     else
       render :index, status: :unprocessable_entity
@@ -55,6 +55,15 @@ class BookingsController < ApplicationController
     @booking.destroy
     redirect_to mybookings_path
   end
+
+  def calculate_total
+    start_date = Date.parse(params[:start_date])
+  end_date = Date.parse(params[:end_date])
+  total_price = @booking.calculate_total_price(start_date, end_date)
+  total_days = @booking.calculate_total_days(start_date, end_date)
+
+  render json: { totalPrice: total_price, totalDays: total_days }
+end
 
   private
 

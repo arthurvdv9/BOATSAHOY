@@ -20,6 +20,14 @@
 
       </div>
 
+
+      <div class="row">
+        <div class="col-6 mt-4">
+          <p>Total days: <%= @booking.total_days %></p>
+          <p>Total price: <%= @booking.total_price %></p>
+        </div>
+      </div>
+
       <div class="row">
         <div class="col-6 mt-4 mb-6">
           <%= f.submit "Book!", class: "Mbtn-flat" %>
