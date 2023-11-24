@@ -57,7 +57,12 @@
           <h2><%= booking.boat.name %> in <%= booking.boat.location %> 📍</h2>
           <p class="mt-2"><strong>Dates: </strong> <%= booking.start_date.strftime("%B %d, %Y") %> to
           <%= booking.end_date.strftime("%B %d, %Y") %></p>
-          <p><strong>Status:</strong> <em><%= booking.status %></em></p>
+
+          <% if booking.status == "accepted" %>
+            <p><strong>Status:</strong> <span class = "text-success"><%= booking.status %></span></p>
+          <% else %>
+            <p><strong>Status:</strong> <span class = "text-danger"><%= booking.status%></span></p>
+          <% end %>
           <p><strong>Price:</strong> <%= booking.total_price %> for <%= booking.total_days %> days</p>
 
           </div>
@@ -66,4 +71,5 @@
       <% end %>
       </div>
     <% end %>
+
 </div>
