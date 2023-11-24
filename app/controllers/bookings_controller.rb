@@ -22,10 +22,7 @@ class BookingsController < ApplicationController
 
 
     if @booking.save!
-      redirect_to boats_path notice:"Booking was successfully created."
-
-    if @booking.save
-      redirect_to mybookings_path notice:"Booking was successfully created."
+      redirect_to my_bookings_path notice:"Booking was successfully created."
 
     else
       render :index, status: :unprocessable_entity
@@ -68,7 +65,7 @@ class BookingsController < ApplicationController
   total_days = @booking.calculate_total_days(start_date, end_date)
 
   render json: { totalPrice: total_price, totalDays: total_days }
-end
+  end
 
   private
 
