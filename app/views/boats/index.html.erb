@@ -36,7 +36,10 @@
   </div>
 
   <%# ## Card grid %>
+
   <h1 class="text-center my-5">Boats you can rent</h1>
+  <h3><%= @boats.count %> boat(s) available</h3>
+
   <div class="cards">
 
     <% @boats.each do |boat| %>
@@ -51,7 +54,10 @@
 
           <div class="boat-infos p-3">
             <h2><%= boat.name.capitalize %></h2>
+            <div class="d-flex justify-content-between">
             <p><%= boat.location.capitalize %></p>
+            <p><%= number_to_currency(boat.price,  unit: "€", precision: 2)%> / day</p>
+            </div>
           </div>
 
         <% end %>
