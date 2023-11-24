@@ -1,17 +1,19 @@
 <div class="container">
 
 
-<h3 class="ms-5 mt-4"><strong>Bookings</strong></h3>
+<h2 class="ms-5 mt-5">Bookings</h3>
 <div class="dashboard-button-container ms-5 mt-4">
   <%= link_to "My booking requests", mybookings_path, class: "btn Mbtn-flat" %>
-  <%= link_to "Requests for my boats", pendingrequests_path, class: "btn Mbtn-flat ms-3" %>
+  <%= link_to "Requests for my Boats", pendingrequests_path, class: "btn Mbtn-flat ms-3" %>
 </div>
 
 
-<h3 class="ms-5 mt-5"><strong>My boats</strong></h3>
 
-<div class="cards ms-5 mt-4">
+<h3 class="ms-5 mt-5"><strong>My Boats</strong></h3>
 
+<h2 class="ms-5 mt-5">My boats</h3>
+
+<div class="cards ms-5 mt-4 mb-5">
       <% @boats.each do |boat| %>
       <%# ## Card trip %>
       <div class="card-trip m-1">
@@ -29,7 +31,7 @@
         <% end %>
 
         <div class="buttons p-3">
-          <%= link_to "Delete", boat_path(boat), class:"m-2", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn Mbtn-ghost" %>
+          <%= link_to "Remove", boat_path(boat), class:"m-2", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn Mbtn-ghost" %>
         </div>
       </div>
 
