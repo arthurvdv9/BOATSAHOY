@@ -16,9 +16,14 @@ a {
 }
 
 .banner {
+
+  width: 100%; /* Adjust the width as needed */
+  padding: 240px 0;
+  background-image: url(boatimage.jpeg);
   background-size: cover;
   background-position: center;
-  padding: 240px 0;
+  background-color: rgba(0,0,0,0.4);
+
 }
 
 .banner h1 {
