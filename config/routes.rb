@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   get "/pendingrequests", to: "bookings#pending_requests", as: "pendingrequests"
   patch "/bookings/:id/accept", to: "bookings#accept", as: "accept"
   patch "/bookings/:id/reject", to: "bookings#reject", as: "reject"
+  get "/calculate_total", to: "bookings#calculate_total"
 
 end
