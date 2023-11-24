@@ -1,36 +1,32 @@
+.Mbtn-flat {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #126BAA;
+  transition: background 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+}
 
+.Mbtn-flat:hover {
+  background:#374661;
+  color: white;
+}
 
-.buttons {
-  margin-left: auto;
-  }
+.Mbtn-ghost {
+  color: #263554;
+  border: 1px solid #263554;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+}
 
-  .Mbtn-flat {
-    color: white;
-    padding: 8px 24px;
-    border-radius: 4px;
-    background: #126BAA;
-    transition: background 0.3s ease;
-  }
+.Mbtn-ghost:hover {
+  opacity: 1;
+}
 
-  .Mbtn-flat:hover {
-    background:#374661;
-    color: white;
-  }
-
-  .Mbtn-ghost {
-    color: #263554;
-    border: 1px solid #263554;
-    padding: 8px 24px;
-    border-radius: 4px;
-    font-weight: lighter;
-    opacity: 0.6;
-    transition: opacity 0.3s ease;
-  }
-
-  .Mbtn-ghost:hover {
-    opacity: 1;
-  }
-
-  .price-card {
-    font-size: 16px;
-  }
+.price-card {
+  font-size: 16px;
+}

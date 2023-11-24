@@ -2,7 +2,7 @@
 <div class="container">
 
   <div class="w-100 mt-5 text-center">
-    <h1> <strong>Ready</strong> to <strong>sail away?</strong></h1>
+    <h1 style="color: #060b3d;"> <strong>Ready</strong> to <strong>sail away?</strong></h1>
     <p>From a city lake to the open sea, make your next boat ride plain sailing.</p>
   </div>
 
@@ -36,22 +36,29 @@
   </div>
 
   <%# ## Card grid %>
-  <h2 class="text-center mt-3"><strong>Boats you can rent</strong></h2>
+
+  <h1 class="text-center my-5">Boats you can rent</h1>
+  <h3><%= @boats.count %> boat(s) available</h3>
+
   <div class="cards">
 
     <% @boats.each do |boat| %>
 
       <%# ## Card trip %>
-      <div class="card-trip m-1">
+      <div class="card-trip mb-5">
         <%= link_to boat_path(boat) do %>
 
           <% if boat.photo.attached? %>
             <%= cl_image_tag boat.photo.key, height: 300, width: 400, crop: :fill %>
           <% end %>
 
-          <div class="boat-infos p-2">
+          <div class="boat-infos p-3">
             <h2><%= boat.name.capitalize %></h2>
+            <div class="d-flex justify-content-between">
             <p><%= boat.location.capitalize %></p>
+            <p><%= number_to_currency(boat.price,  unit: "€", precision: 2)%> / day</p>
+            </div>
+            <p><%= boat.boat_type.capitalize %></p>
           </div>
 
         <% end %>
