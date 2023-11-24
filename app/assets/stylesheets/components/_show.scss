@@ -1,106 +1,120 @@
-.banner {
-  background-size:cover;
-  background-position: center;
-  padding: 150px 0;
-}
 
-.banner h1 {
-  font-family: 'Roboto Mono', monospace;
-  margin: 0;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
-  font-weight: bold;
-}
-
-.banner p {
-  font-size: 20px;
-  color: white;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
-
-.boat-card {
+.single-boat-card {
+  padding: 0 200px;
   overflow: hidden;
-  height: 222px;
-  background: #f7fbfe;
+  background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
 }
 
-.boat-card-image {
-  width:333px;
-  height:100%;
+.single-boat-card-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+  color: #2FA3C1;
+  margin-top: 40px;
+}
+
+.top-section {
+  margin: auto;
+  display: flex;
+}
+
+
+.single-boat-card h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 60px;
+  font-weight: bold;
+  margin: 0;
+  color:#060b3d;
+}
+
+.single-boat-card p {
+  font-family: 'Merriweather', serif;
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+  color:#5A5A5A;
+
+}
+
+.single-boat-card-infos {
+ padding-inline-start: 24px;
+ gap: 12px;
+}
+
+
+.single-boat-card .single-boat-card-infos {
+  padding: 16px;
+  justify-content: space-between;
+  position: relative;
+  display:flex;
+  flex-direction: column;
+
+}
+
+
+ .single-boat-card-user {
+  width: 40px;
+}
+
+.info-block {
+  margin-left: 20px;
+}
+
+.boat-amenities {
+  margin-left: 20px;
+}
+
+
+.top-section > img {
+  border-radius: 16px;
+  overflow: hidden;
+  height: 300px;
+  width: 100%;
   object-fit: cover;
 }
 
-.boat-info h2 {
-  font-family: 'Roboto Mono', monospace;
-  font-size: 24px;
-  font-weight: bold;
-  color:#060b3d;
-  margin: 0;
+.boat-card-buttons {
+    margin-left: auto;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.margin-top-negative {
-  margin-top: -75px;
+.bottom-section {
+  margin: 16px auto;
+  display: flex;
+  width: 100%;
 }
 
 
-
-.boat-show-location {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 300;
-  font-size: 20px;
-  color: #333;
+.boat-button {
+  width: -webkit-fill-available;
 }
 
-.boat-card p {
-  font-family: 'Poppins', sans-serif !important;
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-  color:#F12392
+.search-form-control {
+  position: relative;
 }
 
-.boat-infos {
-  padding: 0 18px;
+.search-form-control .btn {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  right: 8px;
 }
 
-.buttons {
-margin-left: auto;
+.search-form-control .form-control {
+  height: 3.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border: 1px solid #E7E7E7;
 }
 
-.btn-flat {
-  color: white;
-  padding: 8px 24px;
-  border-radius: 4px;
-  background: #f8d614;
-  transition: background 0.3s ease;
-}
-
-.btn-flat:hover {
-  background: #f7fbfe;
-  color: white;
-}
-
-.btn-ghost {
-  color: #F12392;
-  border: 1px solid #F12392;
-  padding: 8px 24px;
-  border-radius: 4px;
-  font-weight: lighter;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-}
-
-.btn-ghost:hover {
-  opacity: 1;
-}
-
-.price-card {
-  font-size: 16px;
+.search-form-control .form-control:focus {
+  border: 1px solid #1EDD88;
+  outline: none !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
