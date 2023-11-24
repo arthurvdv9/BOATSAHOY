@@ -34,6 +34,9 @@ class BookingsController < ApplicationController
     @pending_requests = Booking.select{ |booking| booking.boat.user == current_user }
   end
 
+
+
+
   def mybookings
     @my_bookings = Booking.where(user: current_user)
   end
